@@ -42,15 +42,13 @@ async function generateText() {
                 // Add the next character to the element's content
                 outputElement.innerText += text.charAt(index);
                 if (text.charAt(index) === ' ') {
-                    outputElement.innerText += '\u00A0'; // Unicode for non-breaking space
+                    outputElement.innerText += '\u00A0';
                 }
-                // Call the function recursively for the next character
                 updateText(index + 1);
-            }, 50); // Adjust the delay (in milliseconds) between each character
+            }, 50);
         }
     }
 
-    // Start updating text from the first character
     updateText(0);
   }
   
@@ -85,7 +83,6 @@ async function generateText() {
   }
   
   document.addEventListener('DOMContentLoaded', () => {
-    // Set default theme
     document.documentElement.setAttribute('data-theme', 'light');
   });
   
