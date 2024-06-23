@@ -13,9 +13,8 @@ app.post('/generate', async (req, res) => {
 
   try {
     const response = await axios.post('https://api.cohere.ai/generate', {
-    //   model: 'large', // Specify the model here, adjust based on your account
       prompt,
-      max_tokens: 50, // Adjust as needed to get 10 words reliably
+      max_tokens: 50, 
       temperature: 0.7,
     }, {
       headers: {
@@ -25,11 +24,6 @@ app.post('/generate', async (req, res) => {
     });
 
     console.log('Cohere API Response:', response.data);
-
-    // let generatedText = response.data.text.trim();
-    // let words = generatedText.split(/\s+/).slice(0, 10); // Get the first 10 words
-    // let poem = words.join(' ');
-
     res.json({ text: response.data });
   } catch (error) {
     console.error('Error:', error);
